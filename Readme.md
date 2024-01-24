@@ -13,7 +13,7 @@ LandMetric is a project that aims to provide a comprehensive solution for land a
 
 To use LandMetric, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/devfaisal/LandMetric.git`
+1. Clone the repository: `git clone https://github.com/DevFaisal/LandMetric-React-Native.git`
 2. Install the required dependencies: `npm install`
 3. Start the application: `npm start`
 
@@ -37,7 +37,3 @@ We are actively working on the following updates for LandMetric:
 ## Contributing
 
 Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
