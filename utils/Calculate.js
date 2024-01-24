@@ -11,8 +11,13 @@ export default calculate = (
     const deedPercentage = getDeedPercentages(typeOfDeed, gender);
     const landValues = calculateLandValues({ rate, kanal, marla, sirsai, squarefeet }) + parseInt(valuation);
     const eStamp = roundToNearestTen((landValues * deedPercentage.percentOfEstamp) / 100);
-    const regFee = roundToNearestTen((landValues * deedPercentage.percentOfReg) / 100);
-
+    let regFee = roundToNearestTen((landValues * deedPercentage.percentOfReg) / 100);
+   
+    console.log(regFee)
+    if (typeOfDeed === "gift" && regFee > 10000) {
+        regFee = 10000;
+    }
+    console.log(regFee)
     return {
         rate,
         kanal,

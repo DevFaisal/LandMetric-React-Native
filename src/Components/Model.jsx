@@ -9,7 +9,6 @@ const Model = ({ data }) => {
 
     const [modalVisible, setModalVisible] = useState(true);
 
-    console.log(data)
 
     return (
         <SafeAreaView>
