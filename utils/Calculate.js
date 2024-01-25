@@ -8,16 +8,23 @@ export default calculate = (
         squarefeet,
         gender }
 ) => {
+
+    isNaN(rate) ? rate = 0 : rate = rate;
+    isNaN(kanal) ? kanal = 0 : kanal = kanal;
+    isNaN(marla) ? marla = 0 : marla = marla;
+    isNaN(valuation) ? valuation = 0 : valuation = valuation;
+    isNaN(sirsai) ? sirsai = 0 : sirsai = sirsai;
+    isNaN(squarefeet) ? squarefeet = 0 : squarefeet = squarefeet;
+
     const deedPercentage = getDeedPercentages(typeOfDeed, gender);
     const landValues = calculateLandValues({ rate, kanal, marla, sirsai, squarefeet }) + parseInt(valuation);
     const eStamp = roundToNearestTen((landValues * deedPercentage.percentOfEstamp) / 100);
     let regFee = roundToNearestTen((landValues * deedPercentage.percentOfReg) / 100);
-   
-    console.log(regFee)
+
     if (typeOfDeed === "gift" && regFee > 10000) {
         regFee = 10000;
     }
-    console.log(regFee)
+
     return {
         rate,
         kanal,
@@ -29,6 +36,8 @@ export default calculate = (
         landValues,
         regFee,
         total: eStamp + regFee,
+        gender,
+        typeOfDeed,
     };
 }
 

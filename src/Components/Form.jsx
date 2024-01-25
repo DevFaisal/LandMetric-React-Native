@@ -1,24 +1,71 @@
-import { View, Button, TextInput, TouchableOpacity, Text } from 'react-native'
+import { View, Button, TouchableOpacity, Text } from 'react-native'
 import React from 'react'
 import { useForm, Controller } from "react-hook-form";
 import RNPickerSelect from 'react-native-picker-select';
 import Model from './Model';
 import Calculate from '../../utils/Calculate';
+import InputController from './InputController';
 
 const Form = () => {
+
+    const inputs = [
+        {
+            label: 'Rate per Kanal',
+            required: true,
+            name: 'rate',
+            placeholder: 'Govt rate per Kanal',
+            length: 7,
+        },
+        {
+            label: 'Valuation',
+            required: false,
+            name: 'valuation',
+            placeholder: 'Valuation of Trees or Structures',
+            length: 7,
+        },
+        {
+            label: 'Kanal',
+            required: false,
+            name: 'kanal',
+            placeholder: 'Enter Kanal',
+            length: 2,
+        },
+        {
+            label: 'Marla',
+            required: false,
+            name: 'marla',
+            placeholder: 'Enter Marla',
+            length: 2,
+        },
+        {
+            label: 'Sirsai',
+            required: false,
+            name: 'sirsai',
+            placeholder: 'Enter Sirsai',
+            length: 3,
+        },
+        {
+            label: 'Square Feet',
+            required: false,
+            name: 'squarefeet',
+            placeholder: 'Enter Square Feet',
+            length: 4,
+        },
+    ]
+
     const [data, setData] = React.useState(null)
     const [model, setModel] = React.useState(false)
-    const { control, handleSubmit, formState: { errors } } = useForm({
-        defaultValues: {
-            typeOfDeed: null,
-            rate: 0,
-            valuation: 0,
-            kanal: 0,
-            marla: 0,
-            sirsai: 0,
-            squarefeet: 0,
-            gender: null
-        }
+    const { control, reset, handleSubmit, formState: { errors } } = useForm({
+        // defaultValues: {
+        //     typeOfDeed: null,
+        //     rate: Number,
+        //     valuation: 0,
+        //     kanal: 0,
+        //     marla: 0,
+        //     sirsai: 0,
+        //     squarefeet: 0,
+        //     gender: null,
+        // }
     });
     const onSubmit = (data) => {
         calculatedDate = Calculate(data)
@@ -67,122 +114,20 @@ const Form = () => {
                     name="typeOfDeed"
                 />
                 {errors.typeOfDeed && <Text className="text-red-600">This is required.</Text>}
-                <Text className="text-md pt-2 pb-1 text-white font-semibold">Rate per Kanal</Text>
-                <Controller
-                    control={control}
-                    rules={{
-                        maxLength: 8,
-                        required: true,
-                    }}
-                    render={({ field: { onChange, onBlur, value } }) => (
-                        <TextInput
-                            placeholder="Govt rate per Kanal"
-                            onBlur={onBlur}
-                            onChangeText={onChange}
-                            value={value}
-                            keyboardType='numeric'
-                            keyboardAppearance='dark'
-                            className="bg-white rounded-md p-2 font-semibold"
-                        />
-                    )}
-                    name="rate"
-                />
-                {errors.rate && <Text className="text-red-600">This is required.</Text>}
-                <Text className="text-md pt-2 pb-1 text-white font-semibold">If Valuation</Text>
-                <Controller
-                    control={control}
-                    rules={{
-                        maxLength: 8,
-                    }}
-                    render={({ field: { onChange, onBlur, value } }) => (
-                        <TextInput
-                            placeholder="Valuation of Trees or Structures"
-                            onBlur={onBlur}
-                            onChangeText={onChange}
-                            value={value}
-                            keyboardType='numeric'
-                            keyboardAppearance='dark'
-                            className="bg-white rounded-md p-2 font-semibold"
-                        />
-                    )}
-                    name="valuation"
-                />
-                <Text className="text-md pt-2 pb-1 text-white font-semibold">Kanal</Text>
-                <Controller
-                    control={control}
-                    rules={{
-                        maxLength: 8,
-                    }}
-                    render={({ field: { onChange, onBlur, value } }) => (
-                        <TextInput
-                            placeholder="Enter Kanal"
-                            onBlur={onBlur}
-                            onChangeText={onChange}
-                            value={value}
-                            keyboardType='numeric'
-                            keyboardAppearance='dark'
-                            className="bg-white rounded-md p-2 font-semibold"
-                        />
-                    )}
-                    name="kanal"
-                />
-                <Text className="text-md pt-2 pb-1 text-white font-semibold">Marla</Text>
-                <Controller
-                    control={control}
-                    rules={{
-                        maxLength: 8,
-                    }}
-                    render={({ field: { onChange, onBlur, value } }) => (
-                        <TextInput
-                            placeholder="Enter Marla"
-                            onBlur={onBlur}
-                            onChangeText={onChange}
-                            value={value}
-                            keyboardType='numeric'
-                            keyboardAppearance='dark'
-                            className="bg-white rounded-md p-2 font-semibold"
-                        />
-                    )}
-                    name="marla"
-                />
-                <Text className="text-md pt-2 pb-1 text-white font-semibold">Sirsai</Text>
-                <Controller
-                    control={control}
-                    rules={{
-                        maxLength: 8,
-                    }}
-                    render={({ field: { onChange, onBlur, value } }) => (
-                        <TextInput
-                            placeholder="Enter Sirsai"
-                            onBlur={onBlur}
-                            onChangeText={onChange}
-                            value={value}
-                            keyboardType='numeric'
-                            keyboardAppearance='dark'
-                            className="bg-white rounded-md p-2 font-semibold"
-                        />
-                    )}
-                    name="sirsai"
-                />
-                <Text className="text-md pt-2 pb-1 text-white font-semibold">Square Feet</Text>
-                <Controller
-                    control={control}
-                    rules={{
-                        maxLength: 8,
-                    }}
-                    render={({ field: { onChange, onBlur, value } }) => (
-                        <TextInput
-                            placeholder="Govt rate per Kanal"
-                            onBlur={onBlur}
-                            onChangeText={onChange}
-                            value={value}
-                            keyboardType='numeric'
-                            keyboardAppearance='dark'
-                            className="bg-white rounded-md p-2 font-semibold"
-                        />
-                    )}
-                    name="squarefeet"
-                />
+
+                {inputs.map((input, index) => (
+                    <InputController
+                        control={control}
+                        label={input.label}
+                        placeholder={input.placeholder}
+                        required={input.required}
+                        name={input.name}
+                        errors={errors[input.name]}
+                        length={input.length}
+                        key={index}
+                    />
+                ))}
+
                 <Text className="text-md pt-2 pb-1 text-white font-semibold">Gender</Text>
                 <Controller
                     control={control}
