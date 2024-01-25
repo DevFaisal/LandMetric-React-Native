@@ -1,8 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, ScrollView, SafeAreaView, Text, View } from 'react-native';
-import Header from './src/Components/Header';
-import Form from './src/Components/Form';
-import Model from './src/Components/Model';
+import { ScrollView, SafeAreaView, View } from 'react-native';
+import { Form, Header } from './src/Components/index';
 
 
 export default function App() {
@@ -12,7 +9,6 @@ export default function App() {
         <Header />
         <ScrollView>
           <Form />
-          {/* <Model /> */}
         </ScrollView>
       </SafeAreaView>
     </View>

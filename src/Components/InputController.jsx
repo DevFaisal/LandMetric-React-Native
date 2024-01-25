@@ -1,5 +1,5 @@
 import React from 'react'
-import { useForm, Controller } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import { TextInput, View, Text } from 'react-native'
 
 const InputController = ({

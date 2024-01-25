@@ -15,6 +15,9 @@ web-build/
 *.p12
 *.key
 *.mobileprovision
+# ignores all .env files
+.env*
+
 
 # Metro
 .metro-health-check*
